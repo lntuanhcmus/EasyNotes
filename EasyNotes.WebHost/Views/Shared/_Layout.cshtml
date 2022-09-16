@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EasyNotes.WebHost</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="navbar">
+                <div class="navbar__logo">
+                    <h2><span class="navbar__logo-text ">Easy</span><span class="navbar__logo-text navbar__logo-text--danger">Notes</span></h2>
+                </div>
+                <ul class="navbar__menu">
+                    <li class="navbar__menu-item"><a href="">Sign Up</a></li>
+                    <li class="navbar__menu-item"><a href="">Login</a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="content">
+            @RenderBody()
+        </div>
+
+        <footer class="">
+            <div>
+                &copy; 2022 - ToDoList - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

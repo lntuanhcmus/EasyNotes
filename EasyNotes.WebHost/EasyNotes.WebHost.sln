@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32510.428
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyNotes.WebHost", "EasyNotes.WebHost.csproj", "{4235BF9B-094D-4F5C-BB27-C8AB0D440C6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4235BF9B-094D-4F5C-BB27-C8AB0D440C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4235BF9B-094D-4F5C-BB27-C8AB0D440C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4235BF9B-094D-4F5C-BB27-C8AB0D440C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4235BF9B-094D-4F5C-BB27-C8AB0D440C6D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB0E860E-D32E-44D2-B4E2-73D6B4A92CC4}
+	EndGlobalSection
+EndGlobal
