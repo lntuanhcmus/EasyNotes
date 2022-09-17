@@ -36,6 +36,16 @@ namespace EasyNotes.WebHost
                     .AddEntityFrameworkStores<AppDbContext>()
                     .AddDefaultTokenProviders();
             services.AddControllersWithViews();
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+
+                options.SignIn.RequireConfirmedAccount = false;
+                options.SignIn.RequireConfirmedPhoneNumber = false;
+            });
             services.AddRazorPages();
         }
 
@@ -65,7 +75,7 @@ namespace EasyNotes.WebHost
             {
                 endpoints.MapControllerRoute(
                     name: "MyArea",
-                    pattern: "{area=exists}/{controller=Account}/{action=Register}/{id?}");
+                    pattern: "{area=exists}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

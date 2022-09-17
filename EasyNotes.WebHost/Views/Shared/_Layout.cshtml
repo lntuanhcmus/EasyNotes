@@ -6,6 +6,9 @@
     <title>@ViewData["Title"] - EasyNotes.WebHost</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/base.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @RenderSection("head", required: false)
 </head>
 <body>
     <div class="container">
@@ -14,16 +17,17 @@
                 <div class="navbar__logo">
                     <h2><span class="navbar__logo-text ">Easy</span><span class="navbar__logo-text navbar__logo-text--danger">Notes</span></h2>
                 </div>
-                <ul class="navbar__menu">
-                    <li class="navbar__menu-item"><a href="">Sign Up</a></li>
-                    <li class="navbar__menu-item"><a href="">Login</a></li>
-                </ul>
+                <partial name="_MenuPartial" />
             </div>
         </header>
-        <div class="content">
-            @RenderBody()
+        <div class="body">
+            <div class="body__sidebar">
+                <partial name="_Sidebar" />
+            </div>
+            <div class="body__content">
+                @RenderBody()
+            </div>
         </div>
-
         <footer class="">
             <div>
                 &copy; 2022 - ToDoList - <a asp-area="" asp-page="/Privacy">Privacy</a>
@@ -32,8 +36,12 @@
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/namespace-config.js"></script>
+    <script src="~/js/request-helper.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/navbar/navbar-menu.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

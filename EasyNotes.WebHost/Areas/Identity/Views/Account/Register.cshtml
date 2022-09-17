@@ -6,87 +6,36 @@
 
 }
 
-<style>
-    .form-register {
-        width: 560px;
-        border: 2px;
-        padding: 10px 20px;
-    }
-
-    .form-register__header {
-        background-color: #000000;
-        text-align: center;
-        width: 100%;
-    }
-
-    .form-register__header-title {
-        color: #fff;
-        font-weight: 600;
-        font-size: 1.8rem;
-    }
-
-    .form-register__body {
-        display: flex;
-        flex-direction: column;
-        padding: 10px 20px;
-    }
-
-    .form-register__body-item {
-        display: flex;
-        align-content: center;
-        margin: 10px 0px;
-    }
-
-    .form-register__body-name {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .form-register__body-name > input {
-        width: 45%;
-    }
-
-    .form-register__body-label {
-        width: 30%;
-        font-weight: 600;
-        font-size: 1.5rem;
-    }
-
-    .form-register__body-input {
-        flex: 1;
-    }
+@section head {
+    <link href="/css/Account/identity-register.css" rel="stylesheet" />
+}
 
 
-</style>
-
-
-<div class="form-register">
-    <div class="form-register__header">
-        <h3 class="form-register__header-title">Register Form</h3>
-    </div>
-    <div class="form-register__body">
-        <div class="form-register__body-item">
-            <label class="form-register__body-label">Name</label>
-            <div class="form-register__body-input form-register__body-name">
-                <input asp-for="FirstName" type="text" placeholder="First name" />
-                <input asp-for="LastName" type="text" placeholder="Last name" />
+<div class="register-container">
+    <form class="form-register" asp-controller="account" asp-action="register" method="post">
+        <header class="form-register__header">
+            <h3 class="form-register__header-title">Register</h3>
+            <p class="form-register__header-subtitle">Create your account. It's free and only takes a minute.</p>
+        </header>
+        
+        <div class="form-register__content">
+            <div class="form-register__content-validation" asp-validation-summary="All"></div>
+            <div class="form-register__content-item">
+                <input class="register-firstname" type="text" placeholder="First Name" asp-for="FirstName" name="FirstName" />
+                <input class="register-lastname" type="text" placeholder="Last Name" asp-for="LastName" name="LastName" />
             </div>
+            <div class="form-register__content-item">
+                <input type="text" placeholder="Username" asp-for="Username" name="Username" />
+            </div>
+            <div class="form-register__content-item">
+                <input type="password" placeholder="Password" asp-for="Password" name="Password" />
+            </div>
+            <div class="form-register__content-item">
+                <input type="password" placeholder="Confirm Password" asp-for="ConfirmPassword" name="ConfirmPassword" />
+            </div>
+            <button type="submit" class="form-register__content-button">Register Now</button>
+            <p class="form-register__content-login">Already have an account? <a href="/identity/account/login">Sign in</a></p>
         </div>
-        <div class="form-register__body-item">
-            <label class="form-register__body-label" for="Username">Username</label>
-            <input type="text" class="form-register__body-input" asp-for="Username" name="Username" autocomplete="off" />
-        </div>
-        <div class="form-register__body-item">
-            <label class="form-register__body-label" for="Password">Password</label>
-            <input type="password" class="form-register__body-input" asp-for="Password" name="Password" />
-        </div>
-        <div class="form-register__body-item">
-            <label class="form-register__body-label" for="ConfirmPassword">Confirm Password</label>
-            <input type="password" class="form-register__body-input" asp-for="ConfirmPassword" name="ConfirmPassword" />
-        </div>
-        <div class="form-register__body-button">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </div>
+    </form>
 </div>
 
