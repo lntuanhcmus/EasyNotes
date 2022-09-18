@@ -1,0 +1,26 @@
+﻿@if (ViewBag.Breadcrumb != null)
+{
+    var i = 0;
+    <div id="PageTitle">
+        <div class="page-header">
+            <ul>
+                @foreach (var item in @ViewBag.Breadcrumb)
+                {
+                    if (i > 0)
+                    {
+                        <li class="arrow"><span class="la la-angle-right"></span></li>
+                    }
+                    if (!string.IsNullOrWhiteSpace(item.Url))
+                    {
+                        <li><a href="@item.Url">@item.Name</a></li>
+                    }
+                    else
+                    {
+                        <li><a>@item.Name</a></li>
+                    }
+                    i++;
+                }
+            </ul>
+        </div>
+    </div>
+}

@@ -1,11 +1,12 @@
-﻿using EasyNotes.WebHost.Models;
+﻿using EasyNotes.Data.Configurations;
+using EasyNotes.WebHost.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace EasyNotes.WebHost.Data
+namespace EasyNotes.Data.EntityFramework
 {
     public class AppDbContext : IdentityDbContext<AppUser,AppRole,int>
     {
@@ -17,6 +18,9 @@ namespace EasyNotes.WebHost.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.ApplyConfiguration(new AppUserConfiguration());
+            builder.ApplyConfiguration(new AppRoleConfiguration());
+            builder.ApplyConfiguration(new TaskConfiguration());
             foreach (var entityType in builder.Model.GetEntityTypes())
             {
                 var tableName = entityType.GetTableName();
@@ -29,6 +33,7 @@ namespace EasyNotes.WebHost.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            
             base.OnConfiguring(optionsBuilder);
         }
     }

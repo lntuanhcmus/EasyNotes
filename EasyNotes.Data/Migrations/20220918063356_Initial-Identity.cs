@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace EasyNotes.WebHost.Migrations
+namespace EasyNotes.Data.Migrations
 {
-    public partial class InitialAddIdentity : Migration
+    public partial class InitialIdentity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

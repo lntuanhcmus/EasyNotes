@@ -15,6 +15,11 @@
 
   <ItemGroup>
     <Folder Include="Areas\Identity\Models\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EasyNotes.Data\EasyNotes.Data.csproj" />
   </ItemGroup>
 
 </Project>

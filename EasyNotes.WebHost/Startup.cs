@@ -1,4 +1,4 @@
-using EasyNotes.WebHost.Data;
+using EasyNotes.Data.EntityFramework;
 using EasyNotes.WebHost.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

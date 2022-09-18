@@ -12,14 +12,7 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="navbar">
-                <div class="navbar__logo">
-                    <h2><span class="navbar__logo-text ">Easy</span><span class="navbar__logo-text navbar__logo-text--danger">Notes</span></h2>
-                </div>
-                <partial name="_MenuPartial" />
-            </div>
-        </header>
+        <partial name="_Menubar" />
         <div class="body">
             <div class="body__sidebar">
                 <partial name="_Sidebar" />
@@ -28,11 +21,6 @@
                 @RenderBody()
             </div>
         </div>
-        <footer class="">
-            <div>
-                &copy; 2022 - ToDoList - <a asp-area="" asp-page="/Privacy">Privacy</a>
-            </div>
-        </footer>
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

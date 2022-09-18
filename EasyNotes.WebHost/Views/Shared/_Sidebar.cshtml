@@ -1,16 +1,17 @@
 ﻿@inject SignInManager<AppUser> signInManager;
 
-@if(signInManager.IsSignedIn(User))
+@if (signInManager.IsSignedIn(User))
 {
-<div class="sidebar">
-    <ul class="sidebar__list">
-        <li class="sidebar__list-item"><a href="#"><i class="fas fa-qrcode"></i>Dashboard</a></li>
-        <li class="sidebar__list-item"><a href="#"><i class="fas fa-link"></i>Shorcut</a></li>
-        <li class="sidebar__list-item"><a href="#"><i class="fas fa-stream"></i>Overview</a></li>
-        <li class="sidebar__list-item"><a href="#"><i class="fas fa-calendar-week"></i>Events</a></li>
-        <li class="sidebar__list-item"><a href="#"><i class="far fa-question-circle"></i>About</a></li>
-        <li class="sidebar__list-item"><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
-        <li class="sidebar__list-item"><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
-    </ul>
-</div>
+    <div class="sidebar">
+        <ul class="sidebar__list">
+            <li class="sidebar__list-item"><a href="#"><i class="fas fa-qrcode"></i><p>Dashboard</p></a></li>
+            <li class="sidebar__list-item"><a href="#"><i class="fas fa-link"></i><p>Shorcut</p></a></li>
+            <li class="sidebar__list-item"><a href="#"><i class="fas fa-stream"></i><p>Overview</p></a></li>
+            <li class="sidebar__list-item"><a href="#"><i class="fas fa-calendar-week"></i><p>Events</p></a></li>
+            <li class="sidebar__list-item"><a href="#"><i class="far fa-question-circle"></i><p>About</p></a></li>
+            <li class="sidebar__list-item"><a href="#"><i class="fas fa-sliders-h"></i><p>Services</p></a></li>
+            <li class="sidebar__list-item"><a href="#"><i class="far fa-envelope"></i><p>Contact</p></a></li>
+        </ul>
+    </div>
 }
+<img src="~/favicon.ico" />
