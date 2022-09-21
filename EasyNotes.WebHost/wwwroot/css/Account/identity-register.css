@@ -1,6 +1,6 @@
 ﻿.register-container {
     width: 400px;
-    height: 500px;
+    min-height: 500px;
     padding: 26px 32px;
     background-color: #fff;
     border: 1px solid #fff;
@@ -47,6 +47,22 @@
 .form-register__content-item {
     height: 42px;
     margin-bottom: 24px;
+}
+
+.text-validation {
+    margin-left: 5px;
+    color: var(--text-danger);
+    font-size: 1.1rem;
+}
+
+.register-error {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: var(--text-danger);
+}
+
+
+.fullname {
     display: flex;
 }
 
@@ -55,14 +71,32 @@
     margin-right: 10px;
 }
 
+.register-firstname > input {
+    height: 100%;
+    width: 100%;
+    font-size: 1.5rem;
+    padding-left: 10px;
+    border: 1px solid #dbdcdc;
+    border-radius: 4px;
+}
+
 .register-lastname {
     width: 50%;
     margin-left: 10px;
 }
 
+.register-lastname > input {
+    height: 100%;
+    width: 100%;
+    font-size: 1.5rem;
+    padding-left: 10px;
+    border: 1px solid #dbdcdc;
+    border-radius: 4px;
+}
+
 .form-register__content-item > input {
     height: 100%;
-    flex: 1;
+    width: 100%;
     font-size: 1.5rem;
     padding-left: 10px;
     border: 1px solid #dbdcdc;

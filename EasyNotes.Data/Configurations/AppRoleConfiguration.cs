@@ -1,4 +1,4 @@
-﻿using EasyNotes.WebHost.Models;
+﻿using EasyNotes.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

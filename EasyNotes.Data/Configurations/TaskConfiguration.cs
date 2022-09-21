@@ -14,9 +14,10 @@ namespace EasyNotes.Data.Configurations
         public void Configure(EntityTypeBuilder<ToDoTask> builder)
         {
             builder.ToTable("ToDoTask");
+            builder.HasKey(x=>x.Id);
             builder.Property(x => x.Title).HasMaxLength(255).IsRequired();
             builder.Property(x => x.Description).HasMaxLength(255);
-            builder.HasKey(x => x.TaskId);
+            builder.HasOne(t => t.User).WithMany(u => u.Tasks);
         }
     }
 }

@@ -18,6 +18,8 @@
     text-align: center;
 }
 
+
+
 .form-login__header > h3 {
     font-size: 3rem;
     font-weight: 700;
@@ -28,6 +30,13 @@
     margin: 34px 0;
     display: flex;
     flex-direction: column;
+}
+
+span.field-validation-error {
+    margin-left: 5px;
+    margin-bottom: 5px;
+    color: red;
+    font-size: 1.3rem;
 }
 
 
@@ -57,8 +66,14 @@
 }
 
 .text-validation {
-    color: #ff0000;
+    color: var(--text-danger);
     font-size: 1.2rem;
+}
+
+.login-error {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: var(--text-danger);
 }
 
 .form-login__content-forgot {

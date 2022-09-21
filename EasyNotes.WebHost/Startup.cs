@@ -1,5 +1,6 @@
 using EasyNotes.Data.EntityFramework;
-using EasyNotes.WebHost.Models;
+using EasyNotes.Data.Models;
+using EasyNotes.WebHost.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,20 +33,24 @@ namespace EasyNotes.WebHost
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<AppUser, AppRole>()
-                    .AddEntityFrameworkStores<AppDbContext>()
-                    .AddDefaultTokenProviders();
+            //services.AddIdentity<AppUser, AppRole>()
+            //        .AddEntityFrameworkStores<AppDbContext>()
+            //        .AddDefaultTokenProviders();
             services.AddControllersWithViews();
-            services.Configure<IdentityOptions>(options =>
-            {
-                options.Password.RequireDigit = false;
-                options.Password.RequireLowercase = false;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
+            //services.Configure<IdentityOptions>(options =>
+            //{
+            //    options.Password.RequireDigit = false;
+            //    options.Password.RequireLowercase = false;
+            //    options.Password.RequireNonAlphanumeric = false;
+            //    options.Password.RequireUppercase = false;
 
-                options.SignIn.RequireConfirmedAccount = false;
-                options.SignIn.RequireConfirmedPhoneNumber = false;
-            });
+            //    options.SignIn.RequireConfirmedAccount = false;
+            //    options.SignIn.RequireConfirmedPhoneNumber = false;
+            //});
+            //services.ConfigureApplicationCookie(options => options.LoginPath = "/Identity/Account/Login");
+
+            //services.AddIdentityServer();
+            services.AddCustomizedIdentity(Configuration);
             services.AddRazorPages();
         }
 
@@ -67,6 +72,7 @@ namespace EasyNotes.WebHost
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseIdentityServer();
 
             app.UseAuthentication();
             app.UseAuthorization();

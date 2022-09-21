@@ -1,5 +1,5 @@
 ﻿using EasyNotes.WebHost.Areas.Identity.ViewModels;
-using EasyNotes.WebHost.Models;
+using EasyNotes.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -37,7 +37,7 @@ namespace EasyNotes.WebHost.Areas.Identity.Controllers
                 AppUser user = await _userManager.FindByNameAsync(model.Username);
                 if(user != null)
                 {
-                    ModelState.AddModelError("Username", $"Username '{model.Username}' is already taken.");
+                    ModelState.AddModelError("RegisterError", $"Username '{model.Username}' is already taken.");
                     return View(model);
                 }    
                 else
@@ -94,12 +94,12 @@ namespace EasyNotes.WebHost.Areas.Identity.Controllers
 
                 if(!result.Succeeded)
                 {
-                    ModelState.AddModelError("LoginError", "Login failture");
+                    ModelState.AddModelError("LoginError", "Password is invalid. Try agian");
                     return View(model);
                 }
                 return RedirectToAction("Index","Home",new { area = ""});
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 ViewBag.ErrorMessage = "Login Failture";
                 return View(model);

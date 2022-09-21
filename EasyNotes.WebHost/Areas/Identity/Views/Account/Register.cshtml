@@ -19,19 +19,28 @@
         </header>
         
         <div class="form-register__content">
-            <div class="form-register__content-validation" asp-validation-summary="All"></div>
-            <div class="form-register__content-item">
-                <input class="register-firstname" type="text" placeholder="First Name" asp-for="FirstName" name="FirstName" />
-                <input class="register-lastname" type="text" placeholder="Last Name" asp-for="LastName" name="LastName" />
+            @Html.ValidationMessage("RegisterError", new { @class = "register-error" })
+            <div class="form-register__content-item fullname">
+                <div class="register-firstname">
+                    <input type="text" placeholder="First Name" asp-for="FirstName" name="FirstName" />
+                    <span asp-validation-for="FirstName" class="text-validation"></span>
+                </div>
+                <div class="register-lastname">
+                    <input type="text" placeholder="Last Name" asp-for="LastName" name="LastName" />
+                    <span asp-validation-for="LastName" class="text-validation"></span>
+                </div>
             </div>
             <div class="form-register__content-item">
                 <input type="text" placeholder="Username" asp-for="Username" name="Username" />
+                <span asp-validation-for="Username" class="text-validation"></span>
             </div>
             <div class="form-register__content-item">
                 <input type="password" placeholder="Password" asp-for="Password" name="Password" />
+                <span asp-validation-for="Password" class="text-validation"></span>
             </div>
             <div class="form-register__content-item">
                 <input type="password" placeholder="Confirm Password" asp-for="ConfirmPassword" name="ConfirmPassword" />
+                <span asp-validation-for="ConfirmPassword" class="text-validation"></span>
             </div>
             <button type="submit" class="form-register__content-button">Register Now</button>
             <p class="form-register__content-login">Already have an account? <a href="/identity/account/login">Sign in</a></p>

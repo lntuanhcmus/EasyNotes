@@ -1,4 +1,4 @@
-﻿using EasyNotes.WebHost.Models;
+﻿using EasyNotes.Data.Models;
 using EasyNotes.WebHost.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

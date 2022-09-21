@@ -13,8 +13,9 @@
         <div class="form-login__header">
             <h3>Login</h3>
         </div>
-        
+
         <div class="form-login__content">
+            @Html.ValidationMessage("LoginError", new { @class="login-error" })
             <div class="form-login__content-item">
                 <input type="text" placeholder="Username" asp-for="Username" name="Username" autocomplete="off" />
                 <span asp-validation-for="Username" class="text-validation"></span>

@@ -1,0 +1,69 @@
+﻿@model EasyNotes.WebHost.Areas.Settings.Models.UserViewModel;
+
+@{
+    ViewData["Title"] = "User Info";
+}
+
+@section head {
+    <link href="~/css/Settings/UserManagement/Info.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/js/Settings/UserManagement/user-management-info.js"></script>
+    <script type="text/javascript">
+        var isSuccess = '@ViewBag.SaveSuccess'
+        if (isSuccess) {
+            toastr.success('@ViewBag.Message','Success');
+        }
+
+        var error = '@ViewBag.ErrorMessage';
+        if (error) {
+            toastr.error('@ViewBag.ErrorMessage','Eror')
+        }
+    </script>
+}
+
+
+<section>
+    <form class="card" method="post">
+        <div class="card-item card__header">
+            <h3>My Profile</h3>
+        </div>
+        <div class=" card-item card__body">
+            <div class="card__body-left">
+                <div class="card__body-item">
+                    <label for="Username">First Name</label>
+                    <input type="text" name="FirstName" asp-for="FirstName" />
+                </div>
+
+                <div class="card__body-item">
+                    <label for="Username">Username</label>
+                    <input type="text" name="Username" asp-for="Username" readonly />
+                </div>
+
+                <div class="card__body-item">
+                    <label for="Email">Phone Number</label>
+                    <input type="text" name="PhoneNumber" asp-for="PhoneNumber" />
+                </div>
+            </div>
+            <div class="card__body-right">
+                <div class="card__body-item">
+                    <label for="Username">Last Name</label>
+                    <input type="text" name="LastName" asp-for="LastName" />
+                </div>
+
+                <div class="card__body-item">
+                    <label for="Email">Email</label>
+                    <input type="text" name="Email" asp-for="Email" readonly />
+                </div>
+
+
+            </div>
+        </div>
+        <div class="card-item card__footer">
+            <button type="submit" class="btn-confirm">Save</button>
+            <button type="button" class="btn-cancel">Cancel</button>
+        </div>
+    </form>
+</section>
+

@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EasyNotes.WebHost.Models
+namespace EasyNotes.Data.Models
 {
     public class AppUser: IdentityUser<int>
     {

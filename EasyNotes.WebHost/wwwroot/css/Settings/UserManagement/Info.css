@@ -1,0 +1,70 @@
+﻿.card {
+    padding: 0 26px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-item {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.card__header {
+    padding: 10px 0px;
+}
+
+.card__header h3 {
+    font-size: 1.8rem;
+}
+
+.card__body {
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.card__body-item {
+    display: flex;
+    margin: 25px 0px;
+    align-items: center;
+}
+
+.card__body-item label {
+    width: 20%;
+    text-align: right;
+    margin-right: 15px;
+}
+
+.card__body-item input {
+    padding: 10px 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    flex: 1;
+    max-width: 340px;
+}
+
+.card__body-left {
+    flex: 1;
+}
+
+.card__body-right {
+    flex: 1;
+}
+
+.card__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0px;
+    font-size: 1.5rem;
+}
+
+button btn-confirm {
+    margin-right: 10px;
+}
+
+button.btn-cancel {
+    margin-left: 10px;
+}
+
+
+

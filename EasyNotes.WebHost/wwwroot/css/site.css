@@ -1,4 +1,12 @@
-﻿
+﻿.navbar-button--link {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+
+
 .container {
     max-width: 100%;
     padding: 0px;
@@ -17,6 +25,7 @@
     display: flex;
     border: 1px solid transparent;
     box-shadow: 0px 5px 8px rgba(0,0,0,.3);
+    z-index: 1111;
 }
 
 .navbar__logo-text {
@@ -140,7 +149,7 @@
     color: #777;
 }
 
-.user-notification__profile-item a {
+.user-notification__profile-item .logout {
     color: #36c0ff;
     background-color: #e8f8ff;
     border: 1px solid #e8f8ff;
@@ -151,29 +160,16 @@
     transition: all .4s ease;
 }
 
-.user-notification__profile-item a:hover {
+.user-notification__profile-item .logout:hover {
     color: #fff;
     background-color: #22b9ff;
     border: 1px solid #22b9ff;
 }
 
-
-
-
 .navbar__menu-item:hover {
     background-color: #0288a8;
     border: 1px solid transparent;
 }
-
-
-.navbar__menu-item > a {
-    color: #fff;
-    font-weight: 500;
-    font-size: 1.5rem;
-    text-decoration: none;
-}
-
-
 
 .body {
     margin-top: 46px;
@@ -215,12 +211,10 @@
     font-size: 1.5rem;
     font-weight: 500;
     left: 0px;
-}
-
-.sidebar__list-item a {
     display: flex;
     align-items:center;
 }
+
 
 .sidebar__list-item a p {
     margin-bottom: 0px;
@@ -236,9 +230,23 @@
 
 /*----------------------------------------------------- Content -------------------------------------------------------*/
 
+.body__sidebar
+{
+    margin-right: 100px;
+    z-index: 1111;
+}
+
 .body__content {
-    margin-top: 50px;
+    margin:50px 30px;
     flex: 1;
+}
+
+.toast .toast-title {
+    font-size: 1.4rem !important;
+}
+
+.toast .toast-message {
+    font-size: 1.2rem;
 }
 
 
