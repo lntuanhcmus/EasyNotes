@@ -1,7 +1,9 @@
 ﻿@model EasyNotes.WebHost.Areas.Identity.ViewModels.LoginViewModel
+@inject SignInManager<AppUser> _signinManager;
 @{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var ExternalLogins = (await _signinManager.GetExternalAuthenticationSchemesAsync()).ToList();
 }
 
 @section head {
@@ -9,11 +11,10 @@
 }
 
 <div class="login-container">
-    <form class="form-login" action="Login" method="post">
+    <form class="form-login" method="post">
         <div class="form-login__header">
             <h3>Login</h3>
         </div>
-
         <div class="form-login__content">
             @Html.ValidationMessage("LoginError", new { @class="login-error" })
             <div class="form-login__content-item">
@@ -25,10 +26,28 @@
                 <span asp-validation-for="Password" class="text-validation"></span>
             </div>
             <a class="form-login__content-forgot" href="#"> Forgot password?</a>
-            <button type="submit" class="form-login__content-button">Login</button>
+            <button type="submit" class="form-login__content-button" formaction="Login">Login</button>
         </div>
         <div class="form-login__footer">
+            <div class="form-login__footer-reminder">
+                <hr class="reminder-item line"/>
+                <p class="reminder-or">or</p>
+                <hr class="reminder-item  line"/>
+            </div>
+            <div class="external-login">
+                @if ((ExternalLogins?.Count ?? 0) != 0)
+                {
+                    @foreach (var provider in ExternalLogins)
+                    {
+                        <button class="external-login__provider @provider.DisplayName.ToLower()" type="submit" name="provider" value="@provider.Name" formaction="ExternalLogin">
+                            <i class="fa-brands fa-@provider.Name.ToLower()"></i>
+                            <p class="external-login__provider-text">Login with <strong>@provider.DisplayName</strong></p>
+                        </button>
+                    }
+                }
+            </div>
             <p class="form-login__footer-text">Not a member? <a class="form-login__footer-text-link" href="/identity/account/register">Signup</a></p>
         </div>
     </form>
 </div>
+

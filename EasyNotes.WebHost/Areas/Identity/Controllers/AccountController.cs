@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace EasyNotes.WebHost.Areas.Identity.Controllers
 {
@@ -124,6 +126,64 @@ namespace EasyNotes.WebHost.Areas.Identity.Controllers
             }
             
             
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ExternalLogin(string provider, string returnUrl = null)
+        {
+            var listProvider = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            var providerProcess = listProvider.Find((m) => m.Name == provider);
+            if (providerProcess == null)
+            {
+                return NotFound("Not found" + provider);
+            }
+
+            var redirectUrl = Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl });
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+            return Challenge(properties, provider);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null, string remoteError = null)
+        {
+            //if (String.IsNullOrEmpty(remoteError))
+            //{
+            //    return RedirectToAction(nameof(Login));
+            //}
+
+            var externalLoginInfo = await _signInManager.GetExternalLoginInfoAsync();
+
+            if (externalLoginInfo == null)
+            {
+                return RedirectToAction(nameof(Login));
+            }
+
+            var loginName = string.Empty;
+            var loginEmail = string.Empty;
+
+            var externalLoginPrincipal = externalLoginInfo.Principal;
+            if (externalLoginPrincipal != null)
+            {
+                loginEmail = externalLoginPrincipal.FindFirstValue(ClaimTypes.Email);
+                loginName = externalLoginPrincipal.FindFirstValue(ClaimTypes.Name);
+            }
+
+            var result = await _signInManager.ExternalLoginSignInAsync(externalLoginInfo.LoginProvider, externalLoginInfo.ProviderKey, isPersistent: false);
+
+            if (result.Succeeded)
+            {
+                return LocalRedirect(returnUrl);
+            }
+            else
+            {
+                var userExisted = await _userManager.FindByLoginAsync(externalLoginInfo.LoginProvider, externalLoginInfo.ProviderKey);
+                if (userExisted != null)
+                {
+                    return RedirectToAction(nameof(Login), new { Email = userExisted.Email });
+                }
+            }
+
+            return View();
         }
     }
 }

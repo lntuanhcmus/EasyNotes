@@ -29,7 +29,7 @@ namespace EasyNotes.WebHost.Extensions
             services.AddIdentity<AppUser, AppRole>()
                     .AddEntityFrameworkStores<AppDbContext>()
                     .AddDefaultTokenProviders();
-            
+
             services.AddIdentityServer(options =>
             {
                 options.Events.RaiseErrorEvents = true;
@@ -41,11 +41,29 @@ namespace EasyNotes.WebHost.Extensions
                     .AddInMemoryIdentityResources(IdentityServerConfig.Ids)
                     .AddInMemoryApiResources(IdentityServerConfig.Apis)
                     .AddInMemoryApiScopes(IdentityServerConfig.ApiScopes)
+                    .AddAspNetIdentity<AppUser>()
                     .AddDeveloperSigningCredential();
             services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = ("/Identity/Account/Login");
             });
+
+            services.AddAuthentication()
+                    .AddGoogle(googleOptions =>
+                    {
+                        IConfigurationSection googleAuthNSection = configuration.GetSection("Authentication:Google");
+
+                        googleOptions.ClientId = googleAuthNSection["ClientId"];
+                        googleOptions.ClientSecret = googleAuthNSection["ClientSecret"];
+
+                    })
+                    .AddFacebook(facebookOptions =>
+                    {
+                        IConfigurationSection facebookAuthNSection = configuration.GetSection("Authentication:Facebook");
+
+                        facebookOptions.AppId = facebookAuthNSection["AppId"];
+                        facebookOptions.AppSecret = facebookAuthNSection["AppSecret"];
+                    });
 
             return services;
         }    

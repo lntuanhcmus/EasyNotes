@@ -1,7 +1,6 @@
 ﻿.login-container {
     margin: 0 auto;
     width: 390px;
-    height: 410px;
 }
 
 .form-login {
@@ -95,6 +94,58 @@ span.field-validation-error {
 
 .form-login__footer {
     text-align: center;
+}
+
+.form-login__footer-reminder {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.reminder-item {
+    flex: 1;
+}
+
+.reminder-or {
+    font-size: 1.4rem;
+    margin: 0px 10px;
+    font-weight: 400;
+}
+
+.external-login {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.external-login__provider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0px;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    color: var(--text-white);
+    margin-bottom: 15px;
+
+}
+
+.external-login__provider.google {
+    background-color: #d34836;
+    border: 1px solid #d34836;
+}
+
+.external-login__provider.facebook {
+    background-color: #3a5ba0;
+    border: 1px solid #3a5ba0;
+}
+
+.external-login__provider i {
+    margin-right: 15px;
+}
+
+.external-login__provider-text {
+    margin-bottom: 0px;
+    
 }
 
 .form-login__footer-text {
