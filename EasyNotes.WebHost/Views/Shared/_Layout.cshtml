@@ -20,6 +20,10 @@
             <partial name="_Sidebar" />
             <div class="body__content">
                 @RenderBody()
+                <div class="loader">
+                    <div class="loader-image"></div>
+                </div>
+                <partial name="_ConfirmModal" />
             </div>
         </div>
     </div>
@@ -28,8 +32,11 @@
     <script src="~/lib/toastr/toastr.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/namespace-config.js"></script>
+    <script src="~/js/constant.js"></script>
     <script src="~/js/request-helper.js"></script>
+    <script src="~/js/global.js"></script>
     <script src="~/js/navbar/navbar-menu.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

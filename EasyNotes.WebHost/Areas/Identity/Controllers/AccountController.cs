@@ -138,7 +138,7 @@ namespace EasyNotes.WebHost.Areas.Identity.Controllers
                 return NotFound("Not found" + provider);
             }
 
-            var redirectUrl = Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl });
+            var redirectUrl = Url.RouteUrl("ExternalLoginCallback", new { returnUrl }, Request.Scheme);
             var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
             return Challenge(properties, provider);
         }
@@ -146,44 +146,33 @@ namespace EasyNotes.WebHost.Areas.Identity.Controllers
         [HttpGet]
         public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null, string remoteError = null)
         {
-            //if (String.IsNullOrEmpty(remoteError))
-            //{
-            //    return RedirectToAction(nameof(Login));
-            //}
-
-            var externalLoginInfo = await _signInManager.GetExternalLoginInfoAsync();
-
-            if (externalLoginInfo == null)
+            if (!String.IsNullOrEmpty(remoteError))
             {
                 return RedirectToAction(nameof(Login));
             }
 
-            var loginName = string.Empty;
-            var loginEmail = string.Empty;
+            var info = await _signInManager.GetExternalLoginInfoAsync();
 
-            var externalLoginPrincipal = externalLoginInfo.Principal;
-            if (externalLoginPrincipal != null)
+            if (info == null)
             {
-                loginEmail = externalLoginPrincipal.FindFirstValue(ClaimTypes.Email);
-                loginName = externalLoginPrincipal.FindFirstValue(ClaimTypes.Name);
+                return View();
             }
 
-            var result = await _signInManager.ExternalLoginSignInAsync(externalLoginInfo.LoginProvider, externalLoginInfo.ProviderKey, isPersistent: false);
+            var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false);
 
             if (result.Succeeded)
             {
-                return LocalRedirect(returnUrl);
-            }
-            else
-            {
-                var userExisted = await _userManager.FindByLoginAsync(externalLoginInfo.LoginProvider, externalLoginInfo.ProviderKey);
-                if (userExisted != null)
-                {
-                    return RedirectToAction(nameof(Login), new { Email = userExisted.Email });
-                }
+                await _signInManager.UpdateExternalAuthenticationTokensAsync(info);
+
+                return RedirectToAction(returnUrl);
             }
 
+            if (result.IsLockedOut)
+            {
+                return View();
+            }
             return View();
+
         }
     }
 }

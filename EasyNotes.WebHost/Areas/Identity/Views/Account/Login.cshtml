@@ -11,7 +11,7 @@
 }
 
 <div class="login-container">
-    <form class="form-login" method="post">
+    <form class="form-login" method="post" asp-route-returnUrl="abc">
         <div class="form-login__header">
             <h3>Login</h3>
         </div>
@@ -39,7 +39,9 @@
                 {
                     @foreach (var provider in ExternalLogins)
                     {
+                        <input type="text" name="returnUrl" value="abc" hidden />
                         <button class="external-login__provider @provider.DisplayName.ToLower()" type="submit" name="provider" value="@provider.Name" formaction="ExternalLogin">
+                            
                             <i class="fa-brands fa-@provider.Name.ToLower()"></i>
                             <p class="external-login__provider-text">Login with <strong>@provider.DisplayName</strong></p>
                         </button>

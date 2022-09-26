@@ -18,7 +18,7 @@
 
         var error = '@ViewBag.ErrorMessage';
         if (error) {
-            toastr.error('@ViewBag.ErrorMessage','Eror')
+            toastr.error('@ViewBag.ErrorMessage','Error')
         }
     </script>
 }
@@ -62,7 +62,7 @@
         </div>
         <div class="card-item card__footer">
             <button type="submit" class="btn-confirm">Save</button>
-            <button type="button" class="btn-cancel">Cancel</button>
+            <button type="button" class="btn-cancel" onclick="webApp.page.userManagementInfo.confirmCancel()">Cancel</button>
         </div>
     </form>
 </section>

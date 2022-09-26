@@ -63,6 +63,7 @@ namespace EasyNotes.WebHost.Areas.Settings.Controllers
             {
                 if (!ModelState.IsValid)
                 {
+                    ViewBag.ErrorMessage = "There is an error when updating user";
                     return View(model);
                 }
                 var user = await _userManager.FindByNameAsync(model.Username);
