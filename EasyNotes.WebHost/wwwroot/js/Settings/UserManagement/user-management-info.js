@@ -3,7 +3,7 @@
     webApp.page.userManagementInfo = (function () {
         return {
             confirmCancel: function confirmCancelFn() {
-                var url = '/Settings/UserManagement/Info';
+                var url = '/';
                 window.webApp.global.showConfirmModal('Confirm', webApp.constant.MESSAGE.cancelConfirmMessage, function yesCallback() {
                     window.location.href = url;
                 })
@@ -13,5 +13,8 @@
 }());
 
 $(function () {
-
+    $(window).on('load', function () {
+        webApp.global.showLoading();
+    })
+    webApp.global.hideLoading();
 })

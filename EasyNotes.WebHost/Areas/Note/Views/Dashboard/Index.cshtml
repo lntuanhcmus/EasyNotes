@@ -1,0 +1,24 @@
+﻿@model IEnumerable<EasyNotes.WebHost.Areas.Note.Models.Event>
+@{
+    ViewData["Title"] = "User Info";
+
+    var events = (IEnumerable<EasyNotes.WebHost.Areas.Note.Models.Event>)ViewData["events"];
+    var length = events.Count();
+}
+
+
+
+@section head {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.css">
+}
+
+
+
+<p>@ViewData["events"]</p>
+<h1>Todo Calendar</h1>
+<div id="calendar"></div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.js"></script>
+    <script src="~/js/Note/DashboardManagement/dashboard-management-calendar.js"></script>
+}

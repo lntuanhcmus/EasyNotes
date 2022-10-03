@@ -5,15 +5,25 @@
     <div class="body__sidebar">
         <div class="sidebar">
             <ul class="sidebar__list">
-                <li class="sidebar__list-item"><a href="#"><i class="fas fa-qrcode"></i><p>Dashboard</p></a></li>
-                <li class="sidebar__list-item"><a href="#"><i class="fas fa-link"></i><p>Shorcut</p></a></li>
-                <li class="sidebar__list-item"><a href="#"><i class="fas fa-stream"></i><p>Overview</p></a></li>
-                <li class="sidebar__list-item"><a href="#"><i class="fas fa-calendar-week"></i><p>Events</p></a></li>
-                <li class="sidebar__list-item"><a href="#"><i class="far fa-question-circle"></i><p>About</p></a></li>
-                <li class="sidebar__list-item"><a href="#"><i class="fas fa-sliders-h"></i><p>Services</p></a></li>
-                <li class="sidebar__list-item"><a href="#"><i class="far fa-envelope"></i><p>Contact</p></a></li>
+                <li class="sidebar__list-item"><a href="/Note/Dashboard/Index"><i class="fas fa-qrcode"></i><p>Dashboard</p></a></li>
+                <li class="sidebar__list-item"><a href="/Shortcut"><i class="fas fa-link"></i><p>Shorcut</p></a></li>
+                <li class="sidebar__list-item"><a href="/abc"><i class="fas fa-stream"></i><p>Overview</p></a></li>
+                <li class="sidebar__list-item"><a href="/efg"><i class="fas fa-calendar-week"></i><p>Events</p></a></li>
+                <li class="sidebar__list-item"><a href="/g"><i class="far fa-question-circle"></i><p>About</p></a></li>
+                <li class="sidebar__list-item"><a href="/y"><i class="fas fa-sliders-h"></i><p>Services</p></a></li>
+                <li class="sidebar__list-item"><a href="/t"><i class="far fa-envelope"></i><p>Contact</p></a></li>
             </ul>
         </div>
     </div>
 
 }
+
+<script>
+    var url = window.location.pathname;
+    var sidebarList = $(".sidebar__list-item a");
+    for (var i = 0; i < sidebarList.length; i++) {
+        if (sidebarList[i].pathname == url) {
+            $(sidebarList[i]).parent().addClass("active");
+        }
+    }
+</script>

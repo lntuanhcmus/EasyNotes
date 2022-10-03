@@ -204,14 +204,22 @@
     border-bottom: 1px solid black;
 }
 
+.sidebar__list-item.active {
+    background-color: #3253eb;
+}
+
 .sidebar__list-item > a {
     position: relative;
-    color: #fff;
+    color: #616ba0;
     font-size: 1.5rem;
     font-weight: 500;
     left: 0px;
     display: flex;
-    align-items:center;
+    align-items: center;
+}
+
+.sidebar__list-item.active > a {
+    color: #fff !important;
 }
 
 
@@ -223,8 +231,12 @@
 
 
 .sidebar__list-item > a > i {
-    color: #fff;
+    color: #616ba0;
     margin-right: 15px;
+}
+
+.sidebar__list-item.active > a > i {
+    color : #fff;
 }
 
 /*----------------------------------------------------- Content -------------------------------------------------------*/

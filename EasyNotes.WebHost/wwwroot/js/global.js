@@ -26,7 +26,22 @@
                 }
 
                 modal.modal('show');
+            },
+
+            showLoading: function showLoadingFn() {
+                $(".loader").show();
+            },
+            hideLoading: function hideLoadingFn() {
+                $(".loader").hide();
             }
         }
     }())
 }());
+
+$(function () {
+    $(".loader").fadeOut("slow");
+
+    $(window).on('beforeunload', function (e) {
+        $(".loader").fadeIn('slow');
+    })
+})
