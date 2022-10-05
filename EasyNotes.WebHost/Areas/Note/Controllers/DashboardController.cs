@@ -13,12 +13,12 @@ namespace EasyNotes.WebHost.Areas.Controllers.Note
         [HttpGet]
         public IActionResult Index()
         {
-            ViewData["events"] = new[]
-            {
-                 new Event{Id = 1,Title = "Video for Marisa",StartDate = "2022-03-10"},
-                 new Event{ Id = 2, Title = "Preparation", StartDate = "2022-03-11" },
+            var listEvent = new Event[]{
+                new Event{Id = 1,Title = "Video for Marisa",StartDate = "2022-03-10"},
+                new Event{ Id = 2, Title = "Preparation", StartDate = "2022-03-11" },
             };
-            return View();
+
+            return View(listEvent);
         }
     }
 }
