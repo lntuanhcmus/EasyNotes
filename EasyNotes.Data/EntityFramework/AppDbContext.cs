@@ -21,6 +21,7 @@ namespace EasyNotes.Data.EntityFramework
             builder.ApplyConfiguration(new AppUserConfiguration());
             builder.ApplyConfiguration(new AppRoleConfiguration());
             builder.ApplyConfiguration(new TaskConfiguration());
+            builder.ApplyConfiguration(new AppSettingConfiguration());
             foreach (var entityType in builder.Model.GetEntityTypes())
             {
                 var tableName = entityType.GetTableName();

@@ -5,11 +5,15 @@ VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyNotes.WebHost", "EasyNotes.WebHost.csproj", "{4235BF9B-094D-4F5C-BB27-C8AB0D440C6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyNotes.Data", "..\EasyNotes.Data\EasyNotes.Data.csproj", "{16D309A7-3C4B-4647-B266-4C6583D3D2DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyNotes.Data", "..\EasyNotes.Data\EasyNotes.Data.csproj", "{16D309A7-3C4B-4647-B266-4C6583D3D2DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyNotes.Infrastructure", "..\EasyNotes.Infrastructure\EasyNotes.Infrastructure.csproj", "{6DFBD1E4-701B-45A2-BF33-415438FF738E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyNotes.Infrastructure", "..\EasyNotes.Infrastructure\EasyNotes.Infrastructure.csproj", "{6DFBD1E4-701B-45A2-BF33-415438FF738E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyNotes.Application", "..\EasyNotes.Application\EasyNotes.Application.csproj", "{56C0FA6D-6B13-42B6-BD3D-A0FBD4981BE4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyNotes.Application", "..\EasyNotes.Application\EasyNotes.Application.csproj", "{B0F6ECFF-0AED-4731-B10A-763BC55AE06A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyNotes.ActivityLog", "..\EasyNotes.ActivityLog\EasyNotes.ActivityLog.csproj", "{3FDEB79B-45B3-47B2-AC95-AFCBF8252EFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyNotes.ActivityLog.Data", "..\EasyNotes.ActivityLog.Data\EasyNotes.ActivityLog.Data.csproj", "{35A6AA88-47D4-493B-BB0A-6B703A48D2BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +33,18 @@ Global
 		{6DFBD1E4-701B-45A2-BF33-415438FF738E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DFBD1E4-701B-45A2-BF33-415438FF738E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DFBD1E4-701B-45A2-BF33-415438FF738E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{56C0FA6D-6B13-42B6-BD3D-A0FBD4981BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{56C0FA6D-6B13-42B6-BD3D-A0FBD4981BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{56C0FA6D-6B13-42B6-BD3D-A0FBD4981BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{56C0FA6D-6B13-42B6-BD3D-A0FBD4981BE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0F6ECFF-0AED-4731-B10A-763BC55AE06A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0F6ECFF-0AED-4731-B10A-763BC55AE06A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0F6ECFF-0AED-4731-B10A-763BC55AE06A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0F6ECFF-0AED-4731-B10A-763BC55AE06A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FDEB79B-45B3-47B2-AC95-AFCBF8252EFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FDEB79B-45B3-47B2-AC95-AFCBF8252EFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FDEB79B-45B3-47B2-AC95-AFCBF8252EFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FDEB79B-45B3-47B2-AC95-AFCBF8252EFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35A6AA88-47D4-493B-BB0A-6B703A48D2BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35A6AA88-47D4-493B-BB0A-6B703A48D2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35A6AA88-47D4-493B-BB0A-6B703A48D2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35A6AA88-47D4-493B-BB0A-6B703A48D2BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

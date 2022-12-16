@@ -25,6 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EasyNotes.ActivityLog.Data\EasyNotes.ActivityLog.Data.csproj" />
+    <ProjectReference Include="..\EasyNotes.ActivityLog\EasyNotes.ActivityLog.csproj" />
     <ProjectReference Include="..\EasyNotes.Data\EasyNotes.Data.csproj" />
   </ItemGroup>
 

@@ -22,8 +22,10 @@
             renderCalendar: function renderCalendarFn() {
                 let calendarEl = document.getElementById('calendar');
 
-                let listEvent = calendarEl.getAttribute('list-event');
-                console.log(listEvent);
+                let listEvent = $("#listEvent").val();
+                for (var i = 0; i < listEvent.length; i++) {
+                    console.log(listEvent[i]);
+                }
 
                 let calendar = new FullCalendar.Calendar(calendarEl, webApp.page.dashboardManagement.options);
 

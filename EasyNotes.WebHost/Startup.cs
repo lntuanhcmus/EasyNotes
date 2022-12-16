@@ -3,6 +3,7 @@ using EasyNotes.Data.Models;
 using EasyNotes.WebHost.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -32,24 +33,10 @@ namespace EasyNotes.WebHost
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-
-            //services.AddIdentity<AppUser, AppRole>()
-            //        .AddEntityFrameworkStores<AppDbContext>()
-            //        .AddDefaultTokenProviders();
             services.AddControllersWithViews();
-            //services.Configure<IdentityOptions>(options =>
-            //{
-            //    options.Password.RequireDigit = false;
-            //    options.Password.RequireLowercase = false;
-            //    options.Password.RequireNonAlphanumeric = false;
-            //    options.Password.RequireUppercase = false;
 
-            //    options.SignIn.RequireConfirmedAccount = false;
-            //    options.SignIn.RequireConfirmedPhoneNumber = false;
-            //});
-            //services.ConfigureApplicationCookie(options => options.LoginPath = "/Identity/Account/Login");
 
-            //services.AddIdentityServer();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddCustomizedIdentity(Configuration);
             services.AddRazorPages();
         }
