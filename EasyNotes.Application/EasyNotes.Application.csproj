@@ -8,8 +8,4 @@
     <ProjectReference Include="..\EasyNotes.Infrastructure\EasyNotes.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\Note\Controllers\" />
-  </ItemGroup>
-
 </Project>

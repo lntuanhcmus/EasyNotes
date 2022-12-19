@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyNotes.Data", "..\EasyNo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyNotes.Infrastructure", "..\EasyNotes.Infrastructure\EasyNotes.Infrastructure.csproj", "{6DFBD1E4-701B-45A2-BF33-415438FF738E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyNotes.Application", "..\EasyNotes.Application\EasyNotes.Application.csproj", "{B0F6ECFF-0AED-4731-B10A-763BC55AE06A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyNotes.Application", "..\EasyNotes.Application\EasyNotes.Application.csproj", "{B0F6ECFF-0AED-4731-B10A-763BC55AE06A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyNotes.ActivityLog", "..\EasyNotes.ActivityLog\EasyNotes.ActivityLog.csproj", "{3FDEB79B-45B3-47B2-AC95-AFCBF8252EFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyNotes.ActivityLog", "..\EasyNotes.ActivityLog\EasyNotes.ActivityLog.csproj", "{3FDEB79B-45B3-47B2-AC95-AFCBF8252EFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyNotes.ActivityLog.Data", "..\EasyNotes.ActivityLog.Data\EasyNotes.ActivityLog.Data.csproj", "{35A6AA88-47D4-493B-BB0A-6B703A48D2BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyNotes.ActivityLog.Data", "..\EasyNotes.ActivityLog.Data\EasyNotes.ActivityLog.Data.csproj", "{35A6AA88-47D4-493B-BB0A-6B703A48D2BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyNotes.WebHost.Api", "..\EasyNotes.WebHost.Api\EasyNotes.WebHost.Api.csproj", "{94BA68D1-EA3B-4B5A-84A6-A2446D6E1381}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{35A6AA88-47D4-493B-BB0A-6B703A48D2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35A6AA88-47D4-493B-BB0A-6B703A48D2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35A6AA88-47D4-493B-BB0A-6B703A48D2BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94BA68D1-EA3B-4B5A-84A6-A2446D6E1381}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94BA68D1-EA3B-4B5A-84A6-A2446D6E1381}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94BA68D1-EA3B-4B5A-84A6-A2446D6E1381}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94BA68D1-EA3B-4B5A-84A6-A2446D6E1381}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
